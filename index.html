@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间小助手</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Outfit:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/Myweb1/style.css">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header>
+            <h1>时间小助手</h1>
+            <p class="subtitle">掌控时间，享受生活</p>
+        </header>
+
+        <main>
+            <!-- 1. Date Calculator -->
+            <section class="glass-card calculator-card">
+                <h2>📅 日期计算器</h2>
+                <div class="input-group">
+                    <label for="calc-date">选择日期</label>
+                    <input type="date" id="calc-date">
+                </div>
+                <div class="result-display" id="calc-result">
+                    请选择日期查看结果
+                </div>
+            </section>
+
+            <!-- 2. Holiday Countdown -->
+            <section class="glass-card holiday-card">
+                <h2>🏮 节假日倒计时</h2>
+                <div class="holiday-highlight">
+                    <div class="holiday-info">
+                        <span class="label">距离下一个假期</span>
+                        <h3 id="next-holiday-name">加载中...</h3>
+                    </div>
+                    <div class="holiday-timer" id="next-holiday-timer">
+                        0天
+                    </div>
+                </div>
+                <div class="next-next-holiday">
+                    <span>下下一个假期：</span>
+                    <span id="next-next-holiday-name">--</span>
+                </div>
+                <button class="btn-secondary" id="view-all-holidays">查看今年所有假期</button>
+            </section>
+
+            <!-- 3. Work Countdown -->
+            <section class="glass-card work-card">
+                <h2>💼 下班倒计时</h2>
+                <div class="work-settings">
+                    <div class="time-input">
+                        <label>上班</label>
+                        <input type="time" id="work-start" value="09:00">
+                    </div>
+                    <div class="time-input">
+                        <label>下班</label>
+                        <input type="time" id="work-end" value="18:00">
+                    </div>
+                </div>
+                <div class="work-status" id="work-status">
+                    <div class="work-timer" id="work-timer">--:--:--</div>
+                    <div class="work-message" id="work-message">准备开始搬砖</div>
+                </div>
+                <!-- Auto-save enabled, button removed -->
+            </section>
+
+            <!-- 4. Year Progress -->
+            <section class="glass-card progress-card">
+                <div class="progress-header">
+                    <h2>⏳ {{CurrentYear}}年进度</h2>
+                    <div class="progress-text">
+                        <span id="year-progress-percent">0.00%</span>
+                    </div>
+                </div>
+                <div class="progress-grid" id="year-progress-grid">
+                    <!-- Dynamic Squares -->
+                </div>
+            </section>
+
+            <!-- 5. Todo List -->
+            <section class="glass-card todo-card">
+                <h2>📝 待办事项</h2>
+                <div class="todo-input-group">
+                    <input type="text" id="todo-input" placeholder="添加一个新的待办...">
+                    <button id="add-todo-btn" class="btn-primary">+</button>
+                </div>
+                <ul class="todo-list" id="todo-list">
+                    <!-- Dynamic List -->
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for All Holidays -->
+    <div class="modal-overlay" id="holiday-modal">
+        <div class="glass-card modal-content">
+            <div class="modal-header">
+                <h3>今年节假日一览</h3>
+                <button class="close-btn" id="close-modal">×</button>
+            </div>
+            <ul class="holiday-list" id="holiday-list">
+                <!-- Populated by JS -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
